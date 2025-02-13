@@ -30,6 +30,19 @@ Spritesheets can be up to 2048x2048 in resolution, and are what are used for ani
 
 Tileset files have to be in a very specific layout: Each tileset sheet is 16x16384 pixels, and each tile is 16x16 pixels large. This means each tileset will have exactly 1024 tiles to use.
 
+## GFX Files
+
+GFX format is a graphics format specific to RSDK, and has been in the engine since RSDKv1. 
+
+| Type                     | Bytes Size | Data          | Description                      |
+| ------------------------ | ---------- | ------------- | -------------------------------- |
+| uint16                   | 2          | Width         | The width of the image.          |
+| uint16                   | 2          | Height        | The height of the image.         |
+| Color (RGB8)             | 3 x 256    | Color palette | The color palette for the image. |
+| Image index data (uint8) | ---        | Image Data    | Image data, described below.     |
+
+Image index data in GFX uses a simple algorithm: It will dump the index data to a buffer until it comes across a byte that equals `0xFF`. In that case, it will check the byte after that. If this second byte is *also* `0xFF`, it will stop reading the image data. Otherwise, it will read the next byte after that. This third byte will tell the parser to place the third byte's amount of the second byte's data into the resulting image (ie. run-length encoding). 
+
 ## Animation files
 
 These files are generally stored in the `Animations` folder, and contain various data related to sprite animations to play for Entities, as well as collision data to use when the animation is playing. 
@@ -39,8 +52,6 @@ These files are generally stored in the `Animations` folder, and contain various
 RSDK typically uses OGG files for music, and WAV files for sound effects. 
 
 TODO: Talk about limitations
-
-
 
 ## SaveRAM
 
