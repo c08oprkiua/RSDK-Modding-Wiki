@@ -16,7 +16,7 @@ Usually stored in `/Game/GameConfig.bin` (except in RSDKv1), this is the first f
 
 ## Stage Config
 
-TODO: This
+StageConfig files are used for storing data pertaining to everything (besides stage layout data) to be loaded into a stage, or series of stages. This includes sound effects, scripts and entity names, etc. 
 
 ## Graphics files
 
@@ -24,7 +24,7 @@ Different graphics files supported by RSDK include GIF, GFX, BMP. Index 0 on a g
 
 ### Spritesheets
 
-Spritesheets can be up to 2048x2048 in resolution, and are what are used for animations. 
+Spritesheets are used for loading any visual asset that isn't a tileset. They are used for animations, but animations are limited to using the first 256x256 area from the top-left corner of the sheet.
 
 ### Tilesets
 
@@ -32,7 +32,7 @@ Tileset files have to be in a very specific layout: Each tileset sheet is 16x163
 
 ## GFX Files
 
-GFX format is a graphics format specific to RSDK, and has been in the engine since RSDKv1. 
+GFX format is a graphics format specific to RSDK, and has been in the engine since RSDKv1. It's nearly identical to BMP except for different image width/height size limits.
 
 | Type                     | Bytes Size | Data          | Description                      |
 | ------------------------ | ---------- | ------------- | -------------------------------- |
