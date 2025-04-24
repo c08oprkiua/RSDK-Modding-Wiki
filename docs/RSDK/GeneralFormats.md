@@ -7,11 +7,8 @@ Note: Not every version of RSDK contains all the information listed for these fi
 Usually stored in `/Game/GameConfig.bin` (except in RSDKv1), this is the first file the engine loads, and contains various bits of information pertaining to basics of the game being run, including:
 
 * The game's name
-
 * A description of the game
-
-* Global values, including variables, sound effects, and scripts
-
+* Global information, including variables, sound effects, and scripts
 * Scene categories and names (as seen in the Dev Menu)
 
 ## Stage Config
@@ -20,11 +17,11 @@ StageConfig files are used for storing data pertaining to everything (besides st
 
 ## Graphics files
 
-Different graphics files supported by RSDK include GIF, GFX, BMP. Index 0 on a graphics file is used for the "clear color", instead of using traditional alpha values.
+Different graphics files supported by RSDK include GIF, GFX, BMP, all of which are indexed (palette-based) image formats. Index 0 on a graphics file's color palette is used for the "clear color", instead of using traditional alpha values.
 
 ### Spritesheets
 
-Spritesheets are used for loading any visual asset that isn't a tileset. They are used for animations, but animations are limited to using the first 256x256 area from the top-left corner of the sheet.
+Spritesheets are used for loading any visual asset that isn't a tileset. They are used in animations, but animations are limited to using the first 256x256 area from the top-left corner of the sheet.
 
 ### Tilesets
 
@@ -49,7 +46,7 @@ These files are generally stored in the `Animations` folder, and contain various
 
 ## Sound files
 
-RSDK typically uses OGG files for music, and WAV files for sound effects. 
+RSDK typically uses OGG Vorbis files for music, and WAV files for sound effects.
 
 TODO: Talk about limitations
 
